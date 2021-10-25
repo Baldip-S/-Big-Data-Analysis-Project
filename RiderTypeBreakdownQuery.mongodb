@@ -1,0 +1,29 @@
+use ("Hours")
+
+db.Hours.aggregate(
+  {$group: {_id: "$Time.Year",
+  "Total Riders" : {$sum : "$TotalRiders"},
+  "Registered Riders" : {$sum : "$RegisteredRiders"},
+  "Casual Riders" : {$sum : "$CasualRiders"}}},
+  {$sort: {"Total Riders" : -1}}
+)
+
+
+
+
+db.Hours.aggregate(
+  {$group :{_id: "$Hour", 
+  "Total Riders" : {$sum : "$TotalRiders"}, 
+  "Registered Riders" : {$sum : "$RegisteredRiders"},
+  "Casual Riders" : {$sum : "$CasualRiders"}}},
+  {$sort : {"Total Riders" : -1}}
+)
+
+
+
+
+
+
+
+
+

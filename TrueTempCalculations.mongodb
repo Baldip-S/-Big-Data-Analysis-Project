@@ -1,0 +1,18 @@
+use ("Hours")
+db.Hours.aggregate(
+  {
+    $set: {TrueAmbientTemp: {$add : [-8 , {$multiply : ["$AmbientTemp" , 47]}]}}
+  }
+)
+
+db.Hours.aggregate(
+  {
+    $set: {TrueFeltTemp: {$add : [ -16, {$multiply : ["$FeltTemp" , 66]}]}}
+  }
+)
+
+db.Hours.update({},
+                          {$set : {"TrueAmbientTemp":1}},
+                          {upsert:false,
+                          multi:true}) 
+
