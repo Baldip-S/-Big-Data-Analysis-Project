@@ -1,8 +1,0 @@
-use("Hours")
-
-db.Hours.updateMany(
-  {},
-  {$rename : {"season" : "Season", "yr" : "Year", "cnt" : "TotalRiders", "casual" : "CasualRiders", "registered" : "RegisteredRiders", "mnth" : "Month",
-  "hr" : "Hour", "weekday" : "Weekday", "weathersit" : "Weather","temp" : "AmbientTemp", "atemp" : "FeltTemp",  "hum" : "Humidity", "windspeed" : "WindSpeed", 
-  "windspeed" : "WindSpeed", "dteday" : "Date", "holiday": "Holiday"}},
-)
